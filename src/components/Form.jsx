@@ -57,10 +57,61 @@ const Form = () => {
   };
 
   return (
-    <div id="search" className="w-full bg-gray-600 text-center space-y-4">
+    <div id="search" className="w-full bg-gray-600 m-4 space-y-4 text-left">
       <h1 className="text-7xl font-bold">Search Capsules</h1>
-      <form className="w-full flex justify-evenly p-3">
-        <div className="w-52">
+      <form className="w-full flex flex-col justify-evenly ">
+        <div className="w-11/12 flex flex-row justify-between space-x-4">
+          <div className="w-1/2 m-4">
+            <select
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              name="search-type"
+              onChange={handleOnSelect}
+            >
+              <option onSelect={handleOnSelect} value="Status">
+                Status
+              </option>
+              <option onSelect={handleOnSelect} value="Capsule Serial">
+                Capsule Serial
+              </option>
+              <option onSelect={handleOnSelect} value="Type">
+                Type
+              </option>
+            </select>
+          </div>
+          <div className="w-1/2 m-4">
+            <input
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              type="text"
+              id="input2"
+              name="input-2"
+              placeholder={selectedElement}
+              onChange={handleOnChange}
+              value={serchTerm}
+            />
+          </div>
+        </div>
+        <div className="w-11/12 flex flex-row justify-between space-x-4">
+          <div className="w-1/2 m-4">
+            <button
+              className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded "
+              onClick={handleSearch}
+            >
+              Search
+            </button>
+          </div>
+          <div className="w-1/2 m-4">
+            <button
+              className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded "
+              onClick={handleReset}
+            >
+              Reset
+            </button>
+          </div>
+        </div>
+      </form>
+
+      {/* <form className="w-full flex flex-col justify-evenly p-3 space-y-6">
+        <div className="w-11/12">
           <select
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             name="search-type"
@@ -77,7 +128,7 @@ const Form = () => {
             </option>
           </select>
         </div>
-        <div className="w-52">
+        <div className="w-11/12  flex justify-center items-center">
           <input
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             type="text"
@@ -89,19 +140,19 @@ const Form = () => {
           />
         </div>
         <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-52"
+          className="w-11/12 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded "
           onClick={handleSearch}
         >
           Search
         </button>
         <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-52"
+          className="w-11/12 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded "
           onClick={handleReset}
         >
           Reset
         </button>
-      </form>
-      <div id="data">
+      </form> */}
+      <div className="flex justify-center items-center" id="data">
         <DataGrid filterArray={filterArray} isSearch={isSearch} />
       </div>
     </div>

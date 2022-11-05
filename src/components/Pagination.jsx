@@ -16,18 +16,14 @@ const Pagination = () => {
     paginate(x);
   };
   return (
-    <nav className="flex justify-center items-center bg-gray-600 mt-10">
-      <ul className="flex pl-0 rounded list-none flex-wrap">
+    <nav className="flex justify-center items-center bg-gray-600 mb-3">
+      <ul className="flex  list-none">
         {pageNumbers.map((x) => (
           <li key={x}>
             <a
               onClick={(e) => handlePageChange(e, x)}
               href="!#"
-              className={
-                currentPage - 1 === x
-                  ? "bg-blue border-red-300 text-red-500 hover:bg-blue-200 relative inline-flex items-center px-4 py-2 border text-sm font-medium"
-                  : "bg-white border-black text-black-500 hover:bg-blue-200 relative inline-flex items-center px-4 py-2 border text-sm font-medium"
-              }
+              className="bg-white border-black text-black-500 hover:bg-blue-200 relative inline-flex items-center px-4 py-2 border text-sm font-medium"
             >
               {x}
             </a>
