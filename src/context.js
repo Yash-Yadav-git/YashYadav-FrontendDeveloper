@@ -4,6 +4,8 @@ const SpaceContext = createContext();
 export const ContextProvider = ({ children }) => {
   const [capsules, setCapsules] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [currentPgae, setCurrentPage] = useState(1);
+  const [capsulePerPage] = useState(6);
 
   const fetchCapsules = async () => {
     setLoading(true);
@@ -16,12 +18,21 @@ export const ContextProvider = ({ children }) => {
     fetchCapsules();
   }, []);
 
+  const indexOfLastcapsule = currentPgae * capsulePerPage;
+  const indexOfFirstcapsule = indexOfLastcapsule - capsulePerPage;
+  const capsulesData = capsules.slice(indexOfFirstcapsule, indexOfLastcapsule);
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
   return (
     <SpaceContext.Provider
       value={{
         capsules,
         loading,
         setCapsules,
+        capsulesData,
+        capsulePerPage,
+        currentPgae,
+        paginate,
       }}
     >
       {children}

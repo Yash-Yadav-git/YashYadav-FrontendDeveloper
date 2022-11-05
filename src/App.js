@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import Pagination from "./components/Pagination";
 import Banner from "./components/Banner";
 import Form from "./components/Form";
 import SpaceContext from "./context";
@@ -15,6 +16,7 @@ function App() {
         <div className="w-full h-screen overflow-x-hidden">
           <Banner />
           <Form />
+          <Pagination />
         </div>
       )}
     </div>

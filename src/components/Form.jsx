@@ -8,7 +8,8 @@ const Form = () => {
   const [selectedElement, setSelectedElement] = useState("Status");
   const [serchTerm, setSearchTerm] = useState("");
   const [filterArray, setFilterArray] = useState([]);
-  const { capsules } = useContext(SpaceContext);
+  const [isSearch, setIsSearch] = useState(false);
+  const { capsulesData } = useContext(SpaceContext);
 
   const handleOnSelect = (e) => {
     let temp = e.target.value;
@@ -21,18 +22,18 @@ const Form = () => {
 
   const searchFilter = (selectedElement) => {
     if (selectedElement === "Status") {
-      return capsules.capsules.filter(
+      return capsulesData.filter(
         (x) =>
           x.status.trim().toLowerCase() === serchTerm.trim().toLocaleLowerCase()
       );
     } else if (selectedElement === "Capsule Serial") {
-      return capsules.capsules.filter(
+      return capsulesData.filter(
         (x) =>
           x.capsule_serial.trim().toLowerCase() ===
           serchTerm.trim().toLocaleLowerCase()
       );
     } else if (selectedElement === "Type") {
-      return capsules.capsules.filter(
+      return capsulesData.filter(
         (x) =>
           x.type.trim().toLowerCase() === serchTerm.trim().toLocaleLowerCase()
       );
@@ -43,9 +44,16 @@ const Form = () => {
     setFilterArray(searchFilter(selectedElement));
   };
 
-  const handleOnClick = (e) => {
+  const handleSearch = (e) => {
     e.preventDefault();
+    setIsSearch(true);
     filterItems();
+    setSearchTerm("");
+  };
+
+  const handleReset = (e) => {
+    e.preventDefault();
+    setIsSearch(false);
   };
 
   return (
@@ -77,15 +85,25 @@ const Form = () => {
             name="input-2"
             placeholder={selectedElement}
             onChange={handleOnChange}
+            value={serchTerm}
           />
         </div>
         <button
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-52"
-          onClick={handleOnClick}
+          onClick={handleSearch}
         >
           Search
         </button>
+        <button
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-52"
+          onClick={handleReset}
+        >
+          Reset
+        </button>
       </form>
+      <div id="data">
+        <DataGrid filterArray={filterArray} isSearch={isSearch} />
+      </div>
     </div>
   );
 };
