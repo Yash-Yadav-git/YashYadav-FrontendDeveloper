@@ -2,8 +2,11 @@ import React from "react";
 
 const NotFound = () => {
   return (
-    <div class="flex items-center justify-center w-screen h-48 ">
-      <p class="text-5xl text-white md:text-7xl lg:text-9xl">Data Not Found</p>
+    <div class="flex flex-col items-center justify-center w-screen h-48 ">
+      <h1 class="text-sm text-white md:text-xl lg:text-xl">
+        Search did not return any results..
+      </h1>
+      <h1 class="text-sm text-white md:text-xl lg:text-xl">Please retry.. </h1>
     </div>
   );
 };
