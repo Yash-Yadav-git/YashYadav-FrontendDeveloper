@@ -6,7 +6,7 @@ module.exports = {
       backgroundImage: {
         hero: "url('https://wallpapercave.com/wp/wp2284541.jpg')",
         hero2:
-          "url('https://png.pngtree.com/thumb_back/fw800/background/20190222/ourmid/pngtree-fantasy-starry-banner-skynightilluminatebanner-background-image_57935.jpg')",
+          "url('https://images.unsplash.com/photo-1517976547714-720226b864c1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c3BhY2V4fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60')",
       },
     },
     backgroundPosition: {

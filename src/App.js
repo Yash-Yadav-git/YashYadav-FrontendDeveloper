@@ -4,6 +4,7 @@ import Banner from "./components/Banner";
 import Form from "./components/Form";
 import SpaceContext from "./context";
 import "./index.css";
+import Loading from "./components/Loading";
 
 function App() {
   const { loading } = useContext(SpaceContext);
@@ -11,7 +12,7 @@ function App() {
   return (
     <div className="w-full h-screen bg-gray-600">
       {loading ? (
-        <h1>Loading...</h1>
+        <Loading />
       ) : (
         <div className="w-full h-screen overflow-x-hidden">
           <Banner />

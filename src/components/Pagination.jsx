@@ -4,8 +4,7 @@ import SpaceContext from "../context";
 
 const Pagination = () => {
   const pageNumbers = [];
-  const { capsulePerPage, capsules, paginate, currentPage } =
-    useContext(SpaceContext);
+  const { capsulePerPage, capsules, paginate } = useContext(SpaceContext);
 
   for (let i = 1; i <= Math.ceil(capsules.length / capsulePerPage); i++) {
     pageNumbers.push(i);
@@ -16,10 +15,10 @@ const Pagination = () => {
     paginate(x);
   };
   return (
-    <nav className="flex justify-center items-center bg-gray-600 mb-3">
-      <ul className="flex  list-none">
+    <nav className="flex justify-center items-center bg-slate-700">
+      <ul className="flex  list-none ">
         {pageNumbers.map((x) => (
-          <li key={x}>
+          <li className="text-center" key={x}>
             <a
               onClick={(e) => handlePageChange(e, x)}
               href="!#"
